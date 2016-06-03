@@ -8,12 +8,17 @@ class PermutedMultiples
    return array_of_digits.sort
   end
   integer = 1
+  loop_count = 1
   while
     integer_array = get_array(integer)
     if integer_array == get_array(integer*2) && integer_array == get_array(integer*3) && integer_array == get_array(integer*4) && integer_array == get_array(integer*5) && integer_array == get_array(integer*6)
+      p "Desired Integer"
       p integer
       break
     end
+    loop_count = loop_count + 1
     integer = integer + 1
   end
+  p "Loop Count"
+  p loop_count
 end
