@@ -44,11 +44,11 @@ until max == 10001
 end
 p i - 2}
 p "time taken #{time}"
-
-def ln(n)
-  return Math.log(n,2.718281828459)
-end
-
-def nth_prime(n)
-  return n*(Math.log(n,2.718281828459) + Math.log(Math.log(n,2.718281828459)) - 1 +((Math.log(Math.log(n,2.718281828459)) - 2)/Math.log(n,2.718281828459)) - ((Math.log(Math.log(n,2.718281828459))*Math.log(Math.log(n,2.718281828459)) - 6*Math.log(Math.log(n,2.718281828459)) + 11)/2*Math.log(n,2.718281828459)*Math.log(n,2.718281828459)) )
-end
+#
+# def ln(n)
+#   return Math.log(n,2.718281828459)
+# end
+#
+# def nth_prime(n)
+#   return n*(Math.log(n,2.718281828459) + Math.log(Math.log(n,2.718281828459)) - 1 +((Math.log(Math.log(n,2.718281828459)) - 2)/Math.log(n,2.718281828459)) - ((Math.log(Math.log(n,2.718281828459))*Math.log(Math.log(n,2.718281828459)) - 6*Math.log(Math.log(n,2.718281828459)) + 11)/2*Math.log(n,2.718281828459)*Math.log(n,2.718281828459)) )
+# end
