@@ -1,32 +1,32 @@
-def decimals(a)
-    num = 0
-    while(a != a.to_i)
-        num += 1
-        a *= 10
-    end
-    num
-end
-loop_count = 0
-bitwise_or_value = 0
+#Not working
+total_loop = 1
 max_num = 2**32
-expected_value = 0
-while decimals(expected_value) < 10
-  while
-    random =  Random.rand(max_num - 1)
-    # p bitwise_or_value
-    # p "previous"
-    bitwise_or_value = bitwise_or_value | random
-    if bitwise_or_value == (max_num - 1)
-      # p random
-      # p bitwise_or_value
-      # p "new"
-      # p loop_count
-      break
-    else
-      loop_count = loop_count + 1
+all_ones = max_num - 1
+prob = 1000000000000
+new_expected_value = 0
+previous_len = 0
+previous_sum = 0
+while
+  loop_count = 1
+  bitwise_or_value = 0
+  catch :jump_to_outer do
+    while
+      random =  Random.rand(max_num)
+      bitwise_or_value = bitwise_or_value | random
+      if bitwise_or_value == all_ones
+        throw :jump_to_outer
+      else
+        loop_count = loop_count + 1
+      end
     end
   end
-  p "out of break with #{loop_count}"
-  expected_value = expected_value + loop_count.to_f/max_num.to_f
+  previous_len = previous_len + 1
+  previous_sum = previous_sum + loop_count
+  new_expected_value = (previous_sum.to_f)/(previous_len.to_f)
+  if total_loop % 10000 == 0
+    p "previous_sum is #{previous_sum}, total_loop is #{total_loop}, new_expected_value is #{new_expected_value}"
+  end
+  total_loop = total_loop + 1
 end
-p "decimal value in #{expected_value} is #{decimals(expected_value)}"
+# p "final total_loop is #{total_loop}, new_expected_value is #{new_expected_value}"
+#starts at 01:14
